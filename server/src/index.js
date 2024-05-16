@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 
 app.use('/', require('./routes/userRoute'));
 app.use('/', require('./routes/adminRoute'));
-app.use('/', require('./routes/authRoute'));
 
 app.get('/',  (req, res) => {
     res.send('Hello World!');
