@@ -1,14 +1,14 @@
-const User = require('../models/User');
+const User = require('../models/userModel');
 
 exports.createUser = async (req, res) => {
-    const { name, email, password, confirmPassword, mobile } = req.body;
+    const { name, email, password, mobile } = req.body;
 
     const user = new User({
         name,
         email,
         password,
-        confirmPassword,
-        mobile
+        mobile, 
+        role
     });
 
     try {
