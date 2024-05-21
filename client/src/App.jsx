@@ -1,12 +1,12 @@
+import Hero from './components/Hero/Hero'
 import { Button, Input } from './style'
+import './App.scss'
 
 function App() {
 
   return (
    <div>
-      <h1>React App</h1>
-      <Input type="text" placeholder="Enter your name" />
-      <Button primary >Submit</Button>
+      <Hero />
    </div>
   )
 }

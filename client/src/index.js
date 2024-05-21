@@ -13,7 +13,6 @@ export const theme = {
 
 export const GlobalStyle = createGlobalStyle`
     body {
-        margin: 2rem;
         background-color: whitesmoke;
         font-family: "Poppins", sans-serif;
     }
