@@ -1,21 +1,25 @@
-import styled from "styled-components";
+import styled from '@emotion/styled';
+import { Button as MuiButton } from '@mui/material';
 
-export const Input = styled.input`
-    padding: 1rem 2rem;
-    background-color: #fff;
-    border: none;
-    border-radius: 0.5rem;
+export const Button = styled(MuiButton)`
+    background-color: ${props => props.variant === 'contained' ? '#fff' : 'transparent'};
+    border: 1px solid #fff;
+    border-radius: 1.5rem;
+    padding: 0.25rem 1.25rem;
+    color: ${props => props.variant === 'contained' ? 'var(--primary-color)' : '#fff'};
+    font-weight: bold;
+    font-size: small;
 
-    @media screen and (max-width: 768px){
-        background-color: black;
+    &:hover {
+        background-color: #fff;
+        color: var(--primary-color);
     }
 `
 
-export const Button = styled.button`
-    padding: 1rem 2rem;
-    background-color: ${props => props.primary ? '#6247aa' : 'transparent'};
-    color: ${props => props.primary ? 'white' : '#6247aa'};
-    border: ${props => props.primary ? 'none' : '1px solid #6247aa'};
-    border-radius: 0.5rem;
+export const Logo = styled.div`
+    
+    font-family: "Cinzel", serif;
+    font-size: xx-large;
+    color: #fff;
     cursor: pointer;
 `

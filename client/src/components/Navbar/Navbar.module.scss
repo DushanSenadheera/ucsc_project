@@ -1,0 +1,31 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+
+    .navlinks {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        li {
+            margin: 0 1rem;
+            cursor: pointer;
+            font-size: small;
+
+            a:visited {
+                color: #fff;
+            }
+
+        }
+
+        Button {
+            margin: 0.5rem 2rem;
+        }
+    }
+}

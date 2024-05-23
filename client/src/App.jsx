@@ -1,12 +1,15 @@
 import Hero from './components/Hero/Hero'
-import { Button, Input } from './style'
+import Navbar from './components/Navbar/Navbar'
 import './App.scss'
+import About from './components/About/About'
 
 function App() {
 
   return (
    <div>
+      <Navbar/>
       <Hero />
+      <About/>
    </div>
   )
 }
