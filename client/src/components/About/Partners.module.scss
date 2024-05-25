@@ -1,0 +1,16 @@
+.partners{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.title{
+    text-align: center;
+    margin-top: 4rem;
+
+    span{
+        color: transparent;
+        -webkit-text-stroke: 1px var(--primary-color);
+    }
+}

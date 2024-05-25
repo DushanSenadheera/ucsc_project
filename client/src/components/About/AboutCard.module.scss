@@ -1,0 +1,12 @@
+.aboutCards{
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+
+    .aboutCard{
+        text-align: center;
+        padding: 1rem 1.5rem;
+        border-radius: 1rem;
+        width: 25%;
+    }
+}
