@@ -13,7 +13,7 @@ function srcset(image, size, rows = 1, cols = 1) {
 export default function QuiltedImageList() {
   return (
     <ImageList
-      sx={{ width: '50%', height: 'auto', padding: '5rem', overflow: 'hidden'}}
+      sx={{ width: '100%', height: 'auto', overflow: 'hidden'}}
       variant="quilted"
       cols={4}
       rowHeight={121}

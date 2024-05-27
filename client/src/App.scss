@@ -20,4 +20,10 @@
 .sub-heading {
     font-size: 2rem;
     color: var(--primary-color);
+    text-align: center;
+
+    span{
+        color: transparent;
+        -webkit-text-stroke: 1px var(--primary-color);
+    }
 }
