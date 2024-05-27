@@ -1,20 +1,16 @@
-import Hero from './components/Hero/Hero'
-import Navbar from './components/Navbar/Navbar'
 import './App.scss'
-import About from './components/About/About'
-import Footer from './components/Footer/Footer'
-import Explore from './components/Explore/Explore'
+import Landing from './Pages/Landing/Landing'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import UserLogin from './Pages/Login/UserLogin'
 
 function App() {
-
   return (
-    <div>
-      <Navbar />
-      <Hero />
-      <About />
-      <Explore/>
-      <Footer/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        <Route path='/login' element={<UserLogin />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

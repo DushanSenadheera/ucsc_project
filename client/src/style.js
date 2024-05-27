@@ -3,6 +3,7 @@ import { Button as MuiButton } from '@mui/material';
 import { Accordion as MuiAccordion } from '@mui/material';
 import { AccordionSummary as MuiAccordionSummary } from '@mui/material';
 import { AccordionDetails as MuiAccordionDetails } from '@mui/material';
+import MuiTextField from '@mui/material/TextField';
 
 export const Button = styled(MuiButton)`
     background-color: ${props => props.variant === 'contained' ? '#fff' : 'transparent'};
@@ -42,4 +43,19 @@ export const AccordionDetails = styled(MuiAccordionDetails)`
     padding: 1rem;
     box-shadow: none;
     font-size: small;
+`
+export const TextField = styled(MuiTextField)`
+    border-radius: 1rem;
+    font-size: small;
+    box-shadow: none;
+    border: none;
+    &:hover {
+        border: none;
+    }
+    &:focus {
+        border: none;
+    }
+    &::placeholder {
+        color: #000;
+    }
 `

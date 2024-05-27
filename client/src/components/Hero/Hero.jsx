@@ -11,7 +11,6 @@ export default function Hero() {
             </video>
             <div className={styles.hero_content}>
                 <h1>Discover Your Sanctuary of Sophistication</h1>
-                {/* <small>Step into a world where modern elegance meets timeless charm, offering an unforgettable stay in the heart of luxury</small> */}
                 <Button variant="outline">Contact Us</Button>
             </div>
             <div className={styles.scrollIndicator}>&#8595;</div>

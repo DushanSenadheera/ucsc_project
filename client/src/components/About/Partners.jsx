@@ -4,14 +4,14 @@ import { IconBrandPaypalFilled, IconBrandSpotifyFilled, IconBrandYoutubeFilled, 
 export default function Partners() {
   return (
     <div>
-        <h1 className={styles.title}><span>Our</span> Partners</h1>
-        <div className={styles.partners}>
-            <IconBrandGoogleFilled size={'3rem'} color='grey'/>
-            <IconBrandYoutubeFilled size={'3rem'} color='grey' />
-            <IconBrandSpotifyFilled size={'3rem'} color='grey' />
-            <IconBrandPaypalFilled size={'3rem'} color='grey' />
-            <IconBrandDribbbleFilled size={'3rem'} color='grey' />
-        </div>
+      <h1 className={styles.title}><span>Our</span> Partners</h1>
+      <div className={styles.partners}>
+        {
+          [IconBrandPaypalFilled, IconBrandSpotifyFilled, IconBrandYoutubeFilled, IconBrandGoogleFilled, IconBrandDribbbleFilled].map((Icon, index) => (
+            <Icon key={index} size={48} />
+          ))
+        }
+      </div>
     </div>
   )
 }
