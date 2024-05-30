@@ -1,12 +1,17 @@
+import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { TextField, Button } from "../../style";
-import Checkbox from '@mui/material/Checkbox';
 import styles from './UserLogin.module.scss';
 import usePost from '../../hooks/usePost';
 import { validations } from '../../util/validations';
+import AuthLayout from '../../layout/AuthLayout';
+import MenuItem from '@mui/material/MenuItem';
+
 
 export default function UserLogin() {
-  
+
+  const [room, setRoom] = useState(1);
+  const [guest, setGuest] = useState(1);
   const { data, loading, error, postData } = usePost();
   const { handleSubmit, control, formState: { errors } } = useForm({ mode: 'onChange' });
 
@@ -18,35 +23,82 @@ export default function UserLogin() {
   };
 
   return (
-    <div className={styles.userLogin}>
-      <h1>Sign In</h1>
-      <form>
-        <Controller
-          name="email"
-          control={control}
-          defaultValue=""
-          rules={validations.email}
-          render={({ field }) =>
-            <TextField {...field} type="email" label="Email" variant="outlined" size="small" error={Boolean(errors.email)} helperText={errors.email?.message}
+    <AuthLayout>
+      <div className={styles.userLogin}>
+        <h1>Reserve</h1>
+        <form>
+          <Controller name="name" control={control} defaultValue="" rules={validations.email}
+            render={({ field }) =>
+              <TextField {...field} placeholder='First Last' type="text" label="Full Name" variant="outlined" size="small" error={Boolean(errors.email)} helperText={errors.email?.message}
+              />
+            }
+          />
+          <Controller name="email" control={control} defaultValue="" rules={validations.email}
+            render={({ field }) =>
+              <TextField {...field} type="email" label="Email" variant="outlined" size="small" error={Boolean(errors.email)} helperText={errors.email?.message}
+              />
+            }
+          />
+          <Controller name="mobile" control={control} defaultValue="" rules={validations.password}
+            render={({ field }) =>
+              <TextField {...field} type="tel" label="Mobile" variant="outlined" size="small" error={Boolean(errors.password)} helperText={errors.password?.message} />
+            }
+          />
+          <div className={styles.duration}>
+            <label htmlFor='checkin'>
+              <small>Check-In</small>
+              <Controller name="checkin" control={control} defaultValue="" rules={validations.password}
+                render={({ field }) =>
+                  <TextField {...field} type="date" variant="outlined" size="small" error={Boolean(errors.password)} helperText={errors.password?.message} />
+                }
+              />
+            </label>
+            <label htmlFor='checkout'>
+              <small>Check-Out</small>
+              <Controller name="checkout" control={control} defaultValue="" rules={validations.password}
+                render={({ field }) =>
+                  <TextField {...field} type="date" variant="outlined" size="small" error={Boolean(errors.password)} helperText={errors.password?.message} />
+                }
+              />
+            </label>
+          </div>
+          <div className={styles.rooms}>
+            <Controller name="rooms" control={control} rules={validations.password}
+              render={({ field }) =>
+                <TextField onChange={(e) => { setRoom(e.target.value) }} value={room} {...field} type="number" label="Rooms" variant="outlined" size="small" error={Boolean(errors.password)} helperText={errors.password?.message} />
+              }
             />
-          }
-        />
-        <Controller
-          name="password"
-          control={control}
-          defaultValue=""
-          rules={validations.password}
-          render={({ field }) =>
-            <TextField {...field} type="password" label="Password" variant="outlined" size="small" error={Boolean(errors.password)} helperText={errors.password?.message} />
-          }
-        />
-        <p>
-          <a href="/forgot-password">Forgot Password?</a>
-        </p>
-          <Checkbox color="primary" />Remember Me
-        <Button type="submit" variant="contained" onClick={handleSubmit(onSubmit)}>Login</Button>
-      </form>
-      <small>Don't you have an account? Register from here</small>
-    </div>
+            <Controller name="adults" control={control} defaultValue="" rules={validations.password}
+              render={({ field }) =>
+                <TextField {...field} onChange={(e) => { setGuest(e.target.value) }} value={guest} type="number" label="Adults" variant="outlined" size="small" error={Boolean(errors.password)} helperText={errors.password?.message} />
+              }
+            />
+            <Controller name="child" control={control} defaultValue="" rules={validations.password}
+              render={({ field }) =>
+                <TextField {...field} type="number" value={'0'} label="Child" variant="outlined" size="small" error={Boolean(errors.password)} helperText={errors.password?.message} />
+              }
+            />
+          </div>
+          <div className={styles.roomType}>
+            {
+              Array.from({ length: room }).map((_, index) => (
+                <div key={index}>
+                  <Controller name={`roomType${index}`} control={control} defaultValue="" rules={validations.password}
+                    render={({ field }) =>
+                      <TextField {...field} select label={`Room ${index + 1} Type`} variant="outlined" size="small" error={Boolean(errors.password)} helperText={errors.password?.message} >
+                        {(room >= guest) && <MenuItem value="Single">Single</MenuItem>}
+                        {(room >= guest / 2) && <MenuItem value="Double">Double</MenuItem>}
+                        {(room >= guest / 4) && <MenuItem value="Family">Family</MenuItem>}
+                      </TextField>
+                    }
+                  />
+                </div>
+              ))
+            }
+          </div>
+          <Button type="submit" variant="contained" onClick={handleSubmit(onSubmit)}>Check Availability</Button>
+        </form>
+      </div>
+    </AuthLayout>
   );
 }

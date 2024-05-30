@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import About from '../../components/About/About'
 import Footer from '../../components/Footer/Footer'
 import Explore from '../../components/Explore/Explore'
+import Contact from '../../components/Contact/Contact'
 
 export default function Landing() {
     return (
@@ -11,6 +12,7 @@ export default function Landing() {
             <Hero />
             <About />
             <Explore />
+            <Contact />
             <Footer />
         </div>
     )

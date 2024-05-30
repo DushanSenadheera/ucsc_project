@@ -1,8 +1,24 @@
-.userLogin{
-    form{
+.userLogin {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100vh;
+
+    form {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        .rooms, .duration {
+            display: flex;
+            justify-content: left;
+            gap: 1rem;
+        }
     }
 }

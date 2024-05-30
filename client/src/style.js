@@ -45,17 +45,6 @@ export const AccordionDetails = styled(MuiAccordionDetails)`
     font-size: small;
 `
 export const TextField = styled(MuiTextField)`
-    border-radius: 1rem;
-    font-size: small;
-    box-shadow: none;
-    border: none;
-    &:hover {
-        border: none;
-    }
-    &:focus {
-        border: none;
-    }
-    &::placeholder {
-        color: #000;
-    }
+    width: ${props => props.type === 'number' ? '25%' : '100%'};
+    margin: 0.25rem 0;
 `
