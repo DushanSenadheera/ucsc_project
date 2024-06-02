@@ -16,12 +16,12 @@ export default function Contact() {
 
     return (
         <div className={styles.contact}>
+            <div className={styles.contactDetails}>
             <h1>Contact Us</h1>
-            <div className={styles.contactForm}>
                 <ul>
-                    <li>telephone</li>
-                    <li>email</li>
-                    <li>address</li>
+                    <li>(+94) 11 123 1234</li>
+                    <li>auroragrande@gmail.com</li>
+                    <li>No. 12/3, Street Road, City</li>
                 </ul>
             </div>
             <div className={styles.contactForm}>
@@ -50,6 +50,7 @@ export default function Contact() {
                             />
                         }
                     />
+                    <Button onClick={handleSubmit(onSubmit)} variant="contained" color="primary">Send</Button>
                 </form>
             </div>
         </div>
