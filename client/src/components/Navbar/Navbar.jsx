@@ -30,7 +30,7 @@ export default function Navbar() {
             <NavLink to={link.path} >{link.name}</NavLink>
           </li>
         ))}
-        <Button variant="contained" >Book Now</Button>
+        <NavLink to={'/login'}><Button variant="contained" >Book Now</Button></NavLink>
       </ul>
     </nav>
   )

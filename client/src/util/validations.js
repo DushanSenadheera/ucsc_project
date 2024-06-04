@@ -1,4 +1,10 @@
 export const validations = {
+  name: {
+    required: 'Name is required'
+  },
+  message: {
+    required: 'Message is required'
+  },
   email: {
     required: 'Email is required',
     pattern: {
@@ -12,7 +18,7 @@ export const validations = {
   text: {
     required: 'Name is required'
   },
-  number: {
+  mobile: {
     required: 'Number is required',
     pattern: {
       value: /^\d+$/,

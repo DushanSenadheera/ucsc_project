@@ -10,6 +10,17 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        h1{
+            margin-bottom: 2rem;
+        }
+
+        li{
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
     }
 
     .contactForm{
@@ -21,6 +32,9 @@
 
         form{
             width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
     }
 

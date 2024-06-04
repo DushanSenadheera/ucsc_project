@@ -19,6 +19,19 @@ export const Button = styled(MuiButton)`
         color: var(--primary-color);
     }
 `
+export const ButtonV2 = styled(MuiButton)`
+    background-color: ${props => props.variant === 'contained' ? '#000' : 'transparent'};
+    border-radius: 1.5rem;
+    padding: 0.5rem 1.25rem;
+    color: ${props => props.variant === 'contained' ? '#fff' : '#fff'};
+    font-weight: bold;
+    font-size: small;
+
+    &:hover {
+        background-color: #000;
+        color: #fff;
+    }
+`
 
 export const Logo = styled.div`
     font-family: "Cinzel", serif;

@@ -1,7 +1,9 @@
 import styles from './Contact.module.scss';
 import { validations } from '../../util/validations';
-import { TextField, Button } from "../../style";
+import { TextField, Button, ButtonV2 } from "../../style";
 import { useForm, Controller } from 'react-hook-form';
+import { IconPhone, IconMail, IconMapPin } from '@tabler/icons-react';
+
 
 export default function Contact() {
 
@@ -17,40 +19,40 @@ export default function Contact() {
     return (
         <div className={styles.contact}>
             <div className={styles.contactDetails}>
-            <h1>Contact Us</h1>
+            <h1>Get in touch</h1>
                 <ul>
-                    <li>(+94) 11 123 1234</li>
-                    <li>auroragrande@gmail.com</li>
-                    <li>No. 12/3, Street Road, City</li>
+                    <li><IconPhone size={24} /> (+94) 11 123 1234</li>
+                    <li><IconMail size={24} /> auroragrande@gmail.com</li>
+                    <li><IconMapPin size={24} /> No. 12/3, Street Road, City</li>
                 </ul>
             </div>
             <div className={styles.contactForm}>
                 <form>
-                    <Controller name="name" control={control} defaultValue="" rules={validations.email}
+                    <Controller name="name" control={control} defaultValue="" rules={validations.name}
                         render={({ field }) =>
-                            <TextField {...field} type='text' placeholder='First Last' label="Full Name" variant="outlined" size="small" error={Boolean(errors.email)} helperText={errors.email?.message}
+                            <TextField {...field} type='text' placeholder='First Last' label="Full Name" variant="outlined" size="small" error={Boolean(errors.name)} helperText={errors.name?.message}
                             />
                         }
                     />
-                    <Controller name="name" control={control} defaultValue="" rules={validations.email}
+                    <Controller name="email" control={control} defaultValue="" rules={validations.email}
                         render={({ field }) =>
                             <TextField {...field} type='email' placeholder='Email' label="Email" variant="outlined" size="small" error={Boolean(errors.email)} helperText={errors.email?.message}
                             />
                         }
                     />
-                    <Controller name="name" control={control} defaultValue="" rules={validations.email}
+                    <Controller name="mobile" control={control} defaultValue="" rules={validations.mobile}
                         render={({ field }) =>
-                            <TextField {...field} type='tel' placeholder='Mobile' label="Mobile" variant="outlined" size="small" error={Boolean(errors.email)} helperText={errors.email?.message}
+                            <TextField {...field} type='tel' placeholder='Mobile' label="Mobile" variant="outlined" size="small" error={Boolean(errors.mobile)} helperText={errors.mobile?.message}
                             />
                         }
                     />
-                    <Controller name="name" control={control} defaultValue="" rules={validations.email}
+                    <Controller name="message" control={control} defaultValue="" rules={validations.message}
                         render={({ field }) =>
-                            <TextField {...field} multiline maxRows={12} placeholder='Message' label="Message" variant="outlined" size="small" error={Boolean(errors.email)} helperText={errors.email?.message}
+                            <TextField {...field} multiline maxRows={12} placeholder='Message' label="Message" variant="outlined" size="small" error={Boolean(errors.message)} helperText={errors.message?.message}
                             />
                         }
                     />
-                    <Button onClick={handleSubmit(onSubmit)} variant="contained" color="primary">Send</Button>
+                    <ButtonV2 fullWidth onClick={handleSubmit(onSubmit)} variant="contained" color="primary">Send</ButtonV2>
                 </form>
             </div>
         </div>
