@@ -1,21 +1,18 @@
-import './App.scss'
-import Landing from './Pages/Landing/Landing'
-import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import UserLogin from './Pages/Login/UserLogin'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import UserRoute from './routes/UserRoute';
+import AdminRoute from './routes/AdminRoute';
+import './App.scss';
+import AdminLogin from './Pages/Admin/AdminLogin';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
+    <Router>
       <Routes>
-        <Route path='/' element={<Landing />} />
-        <Route path='/login' element={<UserLogin />} />
+        <Route path="/admin/*" element={<AdminLogin />} />
+        <Route path="/*" element={<UserRoute />} />
       </Routes>
-      <Footer />
-    </BrowserRouter>
+    </Router>
   )
 }
 
-export default App
+export default App;
