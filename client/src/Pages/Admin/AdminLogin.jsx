@@ -11,18 +11,18 @@ export default function AdminLogin() {
     const { data, loading, error, postData } = usePost();
     const { handleSubmit, control, formState: { errors } } = useForm({ mode: 'onChange' });
 
-  const onSubmit = () => {
-    postData({
-      email: '',
-      password: '',
-    });
-  };
+    const onSubmit = () => {
+        postData({
+            email: '',
+            password: '',
+        });
+    };
 
     return (
         <AuthLayout>
             <div className={styles.adminLogin}>
-                <h1>Admin Login</h1>
                 <form>
+                <h3>Admin Login</h3>
                     <Controller name="email" control={control} defaultValue="" rules={validations.email}
                         render={({ field }) =>
                             <TextField {...field} type="email" label="Email" variant="outlined" size="small" error={Boolean(errors.email)} helperText={errors.email?.message}
