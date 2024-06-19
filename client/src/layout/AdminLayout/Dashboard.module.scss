@@ -3,8 +3,44 @@
     width: 100%;
 
     .dashboardNav{
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--primary-color);
+        display: flex;
+        justify-content: space-between;
+
+        ul{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .dashboardNavlinks{
         width: 20%;
         height: 100vh;
-        background-color: rgb(184, 67, 32);
+        background-color: rgb(41, 41, 41);
+        padding: 2rem;
+
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            padding: 0.75rem;
+            color: white;
+            font-size: small;
+        }
+
+        .logout{
+            background-color: #fff;
+            color: black;
+            border-radius: 1rem;
+            margin-top: 18rem;
+        }
+    }
+
+    .dashboardContent{
+        display: flex;
     }
 }
