@@ -60,4 +60,5 @@ export const AccordionDetails = styled(MuiAccordionDetails)`
 export const TextField = styled(MuiTextField)`
     width: ${props => props.type === 'number' ? '25%' : '100%'};
     margin: 0.25rem 0;
+    background-color: #fff;
 `

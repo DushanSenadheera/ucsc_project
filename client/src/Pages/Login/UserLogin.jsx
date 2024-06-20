@@ -6,6 +6,15 @@ import usePost from '../../hooks/usePost';
 import { validations } from '../../util/validations';
 import AuthLayout from '../../layout/AuthLayout';
 import MenuItem from '@mui/material/MenuItem';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+
+const initialOptions = {
+
+  clientId: "AcbQ3mwmjtgfvh_lAQi_H8DYamlj8EFGirqHQIZbJO2_SmVm641RqKyCq7A867YTF3sOfYv-O4818-TO",
+
+  // Add other options as needed
+
+};
 
 
 export default function UserLogin() {
@@ -96,7 +105,28 @@ export default function UserLogin() {
               ))
             }
           </div>
-          <Button type="submit" variant="contained" onClick={handleSubmit(onSubmit)}>Check Availability</Button>
+          {/* <Button type="submit" variant="contained" onClick={handleSubmit(onSubmit)}>Check Availability</Button> */}
+          <PayPalScriptProvider options={initialOptions}>
+
+            <PayPalButtons
+              createOrder={(data, actions) => {
+                return actions.order.create({
+                  purchase_units: [{
+                    amount: {
+                      value: "0.01", // Can dynamically set the amount based on your need
+                    },
+                  }],
+                });
+              }}
+              onApprove={(data, actions) => {
+                return actions.order.capture().then((details) => {
+                  const name = details.payer.name.given_name;
+                  alert(`Transaction completed by ${name}`);
+                });
+              }}
+            />
+
+          </PayPalScriptProvider>
         </form>
       </div>
     </AuthLayout>
