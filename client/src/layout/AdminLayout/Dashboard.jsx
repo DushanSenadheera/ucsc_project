@@ -16,7 +16,7 @@ export default function Dashboard() {
         <ul className={styles.dashboardNavlinks}>
           <NavLink to={'/admin/dashboard'}>Overview</NavLink>
           <NavLink to={'guest'}>Guest Log</NavLink>
-          <NavLink to={'manage'}>Room Management</NavLink>
+          <NavLink to={'room'}>Room Management</NavLink>
           <NavLink to={'settings'}>Settings</NavLink>
           <NavLink className={styles.logout} to={'/admin/dashboard'}>Logout</NavLink>
         </ul>

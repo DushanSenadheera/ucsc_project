@@ -9,11 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 const initialOptions = {
-
   clientId: "AcbQ3mwmjtgfvh_lAQi_H8DYamlj8EFGirqHQIZbJO2_SmVm641RqKyCq7A867YTF3sOfYv-O4818-TO",
-
-  // Add other options as needed
-
 };
 
 
@@ -113,7 +109,8 @@ export default function UserLogin() {
                 return actions.order.create({
                   purchase_units: [{
                     amount: {
-                      value: "0.01", // Can dynamically set the amount based on your need
+                      value: "0.01",
+                       // Can dynamically set the amount based on your need
                     },
                   }],
                 });
