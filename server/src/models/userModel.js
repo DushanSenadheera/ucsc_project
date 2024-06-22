@@ -1,6 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Define a Room subdocument schema
+const roomSchema = new Schema({
+    count: {
+        type: Number,
+        required: true,
+    },
+    type: {
+        type: String,
+        enum: ['Single', 'Double', 'Family'],
+        required: true,
+    }
+});
+
+// Adjust the userSchema to include an array of room subdocuments
 const userSchema = new Schema({
     name: {
         type: String,
@@ -11,18 +25,19 @@ const userSchema = new Schema({
         required: true,
         unique: true,
     },
-    password:{
-        type: String,
-        required: true,
-    },
-    mobile:{
+    adult: {
         type: Number,
         required: true,
     },
-    role:{
-        type: String,
-        default: 'user',
+    child: {
+        type: Number,
+        required: true,
     },
+    mobile: {
+        type: Number,
+        required: true,
+    },
+    rooms: [roomSchema] // Use an array of room subdocuments
 });
 
 module.exports = mongoose.model('User', userSchema);

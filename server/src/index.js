@@ -14,10 +14,6 @@ app.use(bodyParser.json());
 app.use('/', require('./routes/userRoute'));
 app.use('/', require('./routes/adminRoute'));
 
-app.get('/',  (req, res) => {
-    res.send('Hello World!');
-})
-
 app.listen(`${process.env.PORT}`, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
 })
