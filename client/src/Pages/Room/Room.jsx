@@ -5,8 +5,12 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import {Fab} from '../../style';
 // import AddIcon from '@mui/icons-material/Add';
+import { validations } from '../../util/validations';
+import { TextField, Button } from "../../style";
+import { useForm, Controller } from 'react-hook-form';
 
 export default function Room() {
+    const { handleSubmit, control, formState: { errors } } = useForm({ mode: 'onChange' });
 
     const style = {
         position: 'absolute',
@@ -21,28 +25,14 @@ export default function Room() {
     };
 
     const columns = [
-        { field: 'id', headerName: 'ID', width: 70 },
-        { field: 'firstName', headerName: 'First name', width: 130 },
-        { field: 'lastName', headerName: 'Last name', width: 130 },
-        {
-            field: 'age',
-            headerName: 'Age',
-            type: 'number',
-            width: 90,
-        },
+        { field: 'id', headerName: 'Room ID', width: 70 },
+        { field: 'firstName', headerName: 'Room Type', width: 130 },
+        { field: 'lastName', headerName: 'Price', width: 130 },
         {
             field: 'status',
             headerName: 'Status',
             type: 'string',
             width: 90,
-        },
-        {
-            field: 'fullName',
-            headerName: 'Full name',
-            description: 'This column has a value getter and is not sortable.',
-            sortable: false,
-            width: 160,
-            valueGetter: (value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
         },
         {
             field: 'actions',
@@ -59,22 +49,12 @@ export default function Room() {
     ];
 
     const rows = [
-        { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35, status: 'Available'},
-        { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42, status: 'Occupied'},
-        { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45, status: 'Available'},
-        { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16, status: 'Available'},
-        { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null, status: 'Occupied'},
-        { id: 6, lastName: 'Melisandre', firstName: null, age: 150, status: 'Available'},
-        { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44, status: 'Occupied'},
-        { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36, status: 'Available'},
-        { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65, status: 'Occupied'},
-        { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45, status: 'Available'},
-        { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16, status: 'Available'},
-        { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null, status: 'Occupied'},
-        { id: 6, lastName: 'Melisandre', firstName: null, age: 150, status: 'Available'},
-        { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44, status: 'Available'},
-        { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36, status: 'Available' },
-        { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65, status: 'Available'},
+        { id: "S001", lastName: '80 USD', firstName: 'Single', age: 35, status: 'Available'},
+        { id: "S002", lastName: '80 USD', firstName: 'Single', age: 42, status: 'Occupied'},
+        { id: "D001", lastName: '120 USD', firstName: 'Double', age: 45, status: 'Available'},
+        { id: "D002", lastName: '120 USD', firstName: 'Double', age: 16, status: 'Available'},
+        { id: "F001", lastName: '150 USD', firstName: 'Family', age: null, status: 'Occupied'},
+        { id: "F002", lastName: '150 USD', firstName: 'Family', age: 150, status: 'Available'},
     ];
 
 
@@ -102,15 +82,29 @@ export default function Room() {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Text in a modal
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography>
+                <form>
+          <Controller name="name" control={control} defaultValue="" rules={validations.email}
+            render={({ field }) =>
+              <TextField {...field} placeholder='First Last' type="text" label="Room ID" variant="outlined" size="small" error={Boolean(errors.email)} helperText={errors.email?.message}
+              />
+            }
+          />
+          <Controller name="email" control={control} defaultValue="" rules={validations.email}
+            render={({ field }) =>
+              <TextField {...field} type="email" label="Room Type" variant="outlined" size="small" error={Boolean(errors.email)} helperText={errors.email?.message}
+              />
+            }
+          />
+          <Controller name="mobile" control={control} defaultValue="" rules={validations.password}
+            render={({ field }) =>
+              <TextField {...field} type="tel" label="Price" variant="outlined" size="small" error={Boolean(errors.password)} helperText={errors.password?.message} />
+            }
+          />
+          <Button type="submit" variant="contained" color="primary">Add Room</Button>
+          </form>
                 </Box>
             </Modal>
-            <Fab color="primary" aria-label="add">
+            <Fab onClick={() => handleOpen()} color="primary" aria-label="add">
         {/* <AddIcon /> */} +
       </Fab>
         </div>

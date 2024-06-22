@@ -1,12 +1,18 @@
+import img1 from '../../assets/C-ape-Weligama-Welcome-680x840-1.jpg'
+import img2 from '../../assets/Villas-and-Suites-840x870-1.jpg'
+import img3 from '../../assets/Villas-and-Suites1-840x870-1.jpg'
+import img4 from '../../assets/Villas-and-Suites2-840x870-1.jpg'
+import img5 from '../../assets/Villas-and-Suites3-840x870-1.jpg'
+
 const itemData = [
     {
-      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+      img: img1,
       title: 'Breakfast',
       rows: 2,
       cols: 2,
     },
     {
-      img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+      img: img4,
       title: 'Burger',
     },
     {
@@ -24,18 +30,18 @@ const itemData = [
       cols: 2,
     },
     {
-      img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
+      img: img2,
       title: 'Honey',
       author: '@arwinneil',
       rows: 2,
       cols: 2,
     },
     {
-      img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
+      img: img3,
       title: 'Basketball',
     },
     {
-      img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
+      img: img5,
       title: 'Fern',
     },
   ];

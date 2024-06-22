@@ -106,11 +106,10 @@ export default function Guest() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+            Are you sure? want to checkout now?
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <button>Yes</button>
+          <button>No</button>
         </Box>
       </Modal>
     </div>
