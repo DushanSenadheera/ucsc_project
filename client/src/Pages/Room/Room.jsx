@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import Fab from '@mui/material/Fab';
+import {Fab} from '../../style';
 // import AddIcon from '@mui/icons-material/Add';
 
 export default function Room() {

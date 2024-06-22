@@ -3,6 +3,7 @@ import { Button as MuiButton } from '@mui/material';
 import { Accordion as MuiAccordion } from '@mui/material';
 import { AccordionSummary as MuiAccordionSummary } from '@mui/material';
 import { AccordionDetails as MuiAccordionDetails } from '@mui/material';
+import { Fab as MuiFab } from '@mui/material';
 import MuiTextField from '@mui/material/TextField';
 
 export const Button = styled(MuiButton)`
@@ -61,4 +62,17 @@ export const TextField = styled(MuiTextField)`
     width: ${props => props.type === 'number' ? '25%' : '100%'};
     margin: 0.25rem 0;
     background-color: #fff;
+`
+export const Fab = styled(MuiFab)`
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: none;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+
+    &:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+    }
 `

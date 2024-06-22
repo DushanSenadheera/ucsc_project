@@ -9,11 +9,17 @@
         display: flex;
         justify-content: space-between;
 
+        h3, small{
+            color: #fff;
+        }
+
         ul{
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
+
     }
 
     .dashboardNavlinks{

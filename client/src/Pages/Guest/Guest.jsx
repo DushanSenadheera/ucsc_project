@@ -9,7 +9,6 @@ export default function Guest() {
 
   const [data, loading, error] = useFetch('http://localhost:8000/getUsers');
 
-
   const style = {
     position: 'absolute',
     top: '50%',
@@ -80,10 +79,6 @@ export default function Guest() {
     });
   })
     
-
-
-
-
   const [open, setOpen] = useState(false);
   const handleOpen = (row) => setOpen(true);
   const handleClose = (row) => setOpen(false);

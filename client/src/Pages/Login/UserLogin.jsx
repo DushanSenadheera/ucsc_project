@@ -30,11 +30,12 @@ export default function UserLogin() {
   return (
     <AuthLayout>
       <div className={styles.userLogin}>
-        <h1>Reserve</h1>
+        
         <form>
+        <h1>Reserve</h1>
           <Controller name="name" control={control} defaultValue="" rules={validations.email}
             render={({ field }) =>
-              <TextField {...field} placeholder='First Last' type="text" label="Full Name" variant="outlined" size="small" error={Boolean(errors.email)} helperText={errors.email?.message}
+              <TextField {...field} placeholder='First Last' type="text" label="Full Name" variant="outlined" size="small"
               />
             }
           />
@@ -109,7 +110,8 @@ export default function UserLogin() {
                 return actions.order.create({
                   purchase_units: [{
                     amount: {
-                      value: "0.01",
+                      value: "120.00",
+                      currency_code: "USD",
                        // Can dynamically set the amount based on your need
                     },
                   }],
@@ -118,7 +120,7 @@ export default function UserLogin() {
               onApprove={(data, actions) => {
                 return actions.order.capture().then((details) => {
                   const name = details.payer.name.given_name;
-                  alert(`Transaction completed by ${name}`);
+                  alert(`Room reservation completed by ${name}`);
                 });
               }}
             />

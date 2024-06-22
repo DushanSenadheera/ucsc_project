@@ -1,20 +1,30 @@
+import {useState} from 'react'
 import styles from './Contact.module.scss';
 import { validations } from '../../util/validations';
 import { TextField, Button, ButtonV2 } from "../../style";
 import { useForm, Controller } from 'react-hook-form';
 import { IconPhone, IconMail, IconMapPin } from '@tabler/icons-react';
+import axios from 'axios'
 
 
 export default function Contact() {
 
-    const { handleSubmit, control, formState: { errors } } = useForm({ mode: 'onChange' });
+    const [email, setEmail] = useState('');
+    const [body, setBody] = useState('');
 
-    const onSubmit = () => {
-        postData({
-            email: '',
-            password: '',
-        });
-    };
+    const handleSubmit = () => {
+        
+        axios.post('http://localhost:8000/mail', { 
+            email: email, 
+            body: body 
+        })
+            .then(res => {
+                console.log(res);
+                alert("Message sent succesful")
+            })
+    }
+
+    const { control, formState: { errors } } = useForm({ mode: 'onChange' });
 
     return (
         <div className={styles.contact}>
@@ -36,7 +46,7 @@ export default function Contact() {
                     />
                     <Controller name="email" control={control} defaultValue="" rules={validations.email}
                         render={({ field }) =>
-                            <TextField {...field} type='email' placeholder='Email' label="Email" variant="outlined" size="small" error={Boolean(errors.email)} helperText={errors.email?.message}
+                            <TextField onChange={e => setEmail(e.target.value)} value={email} {...field} type='email' placeholder='Email' label="Email" variant="outlined" size="small" error={Boolean(errors.email)} helperText={errors.email?.message}
                             />
                         }
                     />
@@ -48,11 +58,11 @@ export default function Contact() {
                     />
                     <Controller name="message" control={control} defaultValue="" rules={validations.message}
                         render={({ field }) =>
-                            <TextField {...field} multiline maxRows={12} placeholder='Message' label="Message" variant="outlined" size="small" error={Boolean(errors.message)} helperText={errors.message?.message}
+                            <TextField onChange={e => setBody(e.target.value)} value={body} {...field} multiline maxRows={12} placeholder='Message' label="Message" variant="outlined" size="small" error={Boolean(errors.message)} helperText={errors.message?.message}
                             />
                         }
                     />
-                    <ButtonV2 fullWidth onClick={handleSubmit(onSubmit)} variant="contained" color="primary">Send</ButtonV2>
+                    <ButtonV2 fullWidth onClick={handleSubmit} variant="contained" color="primary">Send</ButtonV2>
                 </form>
             </div>
         </div>

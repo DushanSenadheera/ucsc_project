@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './AuthLayout.module.scss'
-import img from '../assets/Villas-and-Suites-840x870-1.jpg'
+import img from '../assets/Advance-Purchase-Savings-at-Cape-Weligama-800x685-1.jpg'
 
 export default function AuthLayout({children}) {
   return (
